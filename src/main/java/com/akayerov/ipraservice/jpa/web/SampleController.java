@@ -16,16 +16,23 @@
 
 package com.akayerov.ipraservice.jpa.web;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 
 import com.akayerov.ipraservice.jpa.domain.Mo;
 import com.akayerov.ipraservice.jpa.service.CityService;
@@ -33,7 +40,7 @@ import com.akayerov.ipraservice.jpa.service.MoDAO;
 import com.akayerov.ipraservice.jpa.service.MoService;
 
 @Controller
-public class SampleController {
+  public class SampleController  {
 
 	@Autowired
 	private CityService cityService;
@@ -41,6 +48,7 @@ public class SampleController {
 	private MoDAO mo;
 	@Autowired
 	private MoService moService;
+
 	
 	@GetMapping("/mo")
 	@ResponseBody
