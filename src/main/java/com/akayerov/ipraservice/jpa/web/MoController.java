@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,8 @@ public class MoController {
 	@GetMapping("/mo1")
 	@ResponseBody
 	@Transactional(readOnly = true)
+// так работает security по ролям!
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public  List<Mo> moListRepository () {
         System.out.println("MoController (/mo1): Get  LIST MO"); 
 		return this.moService.findAll();

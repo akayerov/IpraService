@@ -44,7 +44,8 @@ public class FakeUserDetailsService implements UserDetailsService {
 					+ " not found");
 		}
 System.out.println("Person found:" + username);
-		return new User(username, "password", getGrantedAuthorities(username));
+//		return new User(username, "password", getGrantedAuthorities(username));
+        return new User(username,  person.getPassword().trim(), getGrantedAuthorities(username));
 	}
 
 	private Collection<? extends GrantedAuthority> getGrantedAuthorities(

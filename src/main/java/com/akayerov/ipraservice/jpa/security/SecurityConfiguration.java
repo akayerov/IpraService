@@ -31,7 +31,7 @@ protected void configure(HttpSecurity http) throws Exception {
 	System.out.println("SecurityConfiguration:configure 2");
 	http.authorizeRequests().anyRequest().fullyAuthenticated();
 	http.httpBasic();
-	http.csrf().disable();
+//	http.csrf().disable();
 }
 }
 
